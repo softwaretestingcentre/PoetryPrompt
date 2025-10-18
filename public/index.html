@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PoetryPrompt</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <div id="main-panel">
+      <div id="app">
+        <h1><span class="icon">&#128218;</span> PoetryPrompt</h1>
+        <div id="prompt-section">
+          <button id="get-prompt" class="primary-btn"><span class="icon">&#127912;</span> Get Prompt</button>
+          <div id="prompt-display" class="card"></div>
+        </div>
+        <div id="timer-section" class="fade" style="display:none;">
+          <span id="timer"></span>
+          <button id="start-timer" class="secondary-btn"><span class="icon">&#9200;</span> Start 20-Minute Timer</button>
+        </div>
+        <div id="poem-section" class="fade" style="display:none;">
+          <label for="poem-input" class="input-label">Your Poem</label>
+          <textarea id="poem-input" placeholder="Type your poem here..."></textarea>
+          <div class="upload-group">
+            <label for="poem-photo" class="input-label"><span class="icon">&#128247;</span> Or upload a photo</label>
+            <input type="file" id="poem-photo" accept="image/*">
+          </div>
+          <button id="submit-poem" class="primary-btn" disabled><span class="icon">&#10148;</span> Submit Poem</button>
+        </div>
+        <div id="style-info" class="card info"></div>
+      </div>
+    </div>
+    <div id="photo-panel">
+      <div id="photo-preview-container" style="display:none;">
+        <img id="photo-preview" src="" alt="Photo preview">
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

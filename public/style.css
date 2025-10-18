@@ -1,0 +1,174 @@
+
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, #f7f7fa 0%, #e3e6f5 100%);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+#main-panel {
+  flex: 1 1 0;
+  max-width: 600px;
+  min-width: 340px;
+  background: #fff;
+  border-radius: 0 18px 18px 0;
+  box-shadow: 0 4px 24px rgba(60,60,120,0.10);
+  padding: 36px 28px 32px 28px;
+  overflow-y: auto;
+}
+
+#photo-panel {
+  flex: 0 0 40vw;
+  min-width: 320px;
+  max-width: 600px;
+  background: #e3e6f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  border-radius: 18px 0 0 18px;
+  box-shadow: 0 4px 24px rgba(60,60,120,0.07);
+  overflow: hidden;
+}
+
+#photo-preview-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#photo-preview {
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(60,60,120,0.10);
+  background: #fff;
+  object-fit: contain;
+}
+
+h1 {
+  text-align: center;
+  color: #2a2a4a;
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+.icon {
+  font-size: 1.1em;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+.primary-btn, .secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(90deg, #6a7cff 0%, #a1c4fd 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.08em;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(60,60,120,0.07);
+  transition: background 0.2s;
+}
+.primary-btn:hover {
+  background: linear-gradient(90deg, #5a6ad6 0%, #7eaaff 100%);
+}
+.secondary-btn {
+  background: #f7f7fa;
+  color: #6a7cff;
+  border: 1px solid #dbe2fa;
+}
+.secondary-btn:hover {
+  background: #e3e6f5;
+}
+.card {
+  background: #f7f7fa;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(60,60,120,0.05);
+  padding: 18px 16px;
+  margin-top: 18px;
+  font-size: 1.15em;
+  color: #2a2a4a;
+  min-height: 40px;
+  transition: box-shadow 0.2s;
+}
+.card.info {
+  font-size: 1em;
+  color: #555;
+  margin-top: 18px;
+  background: #e3e6f5;
+  position: relative;
+}
+.expand-link {
+  display: inline-block;
+  margin-left: 12px;
+  color: #6a7cff;
+  font-size: 0.98em;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.expand-link:hover {
+  color: #3a3a5a;
+}
+.input-label {
+  display: block;
+  font-size: 1em;
+  color: #3a3a5a;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+#poem-input {
+  width: 100%;
+  min-height: 120px;
+  margin-bottom: 14px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #dbe2fa;
+  font-size: 1.08em;
+  background: #f7f7fa;
+  resize: vertical;
+  box-shadow: 0 1px 4px rgba(60,60,120,0.04);
+  transition: border 0.2s;
+}
+#poem-input:focus {
+  border: 1.5px solid #6a7cff;
+  outline: none;
+}
+.upload-group {
+  margin-bottom: 14px;
+}
+#poem-photo {
+  display: block;
+  margin-top: 6px;
+  font-size: 1em;
+}
+#timer {
+  font-size: 1.1em;
+  color: #d2691e;
+  margin-right: 12px;
+  font-weight: 600;
+}
+.fade {
+  animation: fadeIn 0.7s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
