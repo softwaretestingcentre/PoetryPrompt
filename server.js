@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const multer = require('multer');
@@ -28,8 +29,11 @@ async function ensurePoemsTable() {
 }
 ensurePoemsTable().catch(console.error);
 
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+// Serve uploads directory for photo access
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const upload = multer({ dest: 'uploads/' });
 
