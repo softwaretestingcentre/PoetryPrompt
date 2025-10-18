@@ -159,11 +159,17 @@ h1 {
   margin-top: 6px;
   font-size: 1em;
 }
+.timer-active {
+  color: #d2691e;
+  font-weight: 600;
+}
+.timer-ended {
+  color: #c0392b;
+  font-weight: 700;
+}
 #timer {
   font-size: 1.1em;
-  color: #d2691e;
   margin-right: 12px;
-  font-weight: 600;
 }
 .fade {
   animation: fadeIn 0.7s;

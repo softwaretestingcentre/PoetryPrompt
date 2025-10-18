@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
   startTimerBtn.addEventListener('click', () => {
     timeLeft = 20 * 60;
     timerSpan.textContent = formatTime(timeLeft);
+    timerSpan.className = 'timer-active';
     timerSection.style.display = 'block';
     poemSection.style.display = 'block';
     startTimerBtn.disabled = true;
@@ -86,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (timeLeft <= 0) {
         clearInterval(timerInterval);
         timerSpan.textContent = 'Time is up!';
+        timerSpan.className = 'timer-ended';
         startTimerBtn.disabled = false;
         submitPoemBtn.disabled = true;
       }
@@ -146,22 +148,37 @@ document.addEventListener('DOMContentLoaded', () => {
     submitPoemBtn.textContent = 'Submitting...';
     // Prepare form data
     const formData = new FormData();
-    formData.append('poem', poemText);
+    formData.append('text', poemText);
+    // Get theme and style from prompt
+    const promptText = promptDisplay.textContent;
+    let theme = '', style = '';
+    if (promptText.includes('Theme:') && promptText.includes('| Style:')) {
+      const themeMatch = promptText.match(/Theme: ([^|]+)\s*\|/);
+      const styleMatch = promptText.match(/Style: (.+)$/);
+      if (themeMatch) theme = themeMatch[1].trim();
+      if (styleMatch) style = styleMatch[1].trim();
+    }
+    formData.append('theme', theme);
+    formData.append('style', style);
     if (photoInput.files.length) {
       formData.append('photo', photoInput.files[0]);
     }
-    // Placeholder: send to backend
     try {
-      // Uncomment and implement backend endpoint for real submission
-      // const res = await fetch('/api/submit', { method: 'POST', body: formData });
-      // const result = await res.json();
-      setTimeout(() => {
+      const res = await fetch('/api/submit', { method: 'POST', body: formData });
+      const result = await res.json();
+      if (result.success) {
         alert('Poem submitted!');
         submitPoemBtn.textContent = 'Submit Poem';
         submitPoemBtn.disabled = false;
         document.getElementById('poem-input').value = '';
         photoInput.value = '';
-      }, 1200);
+        photoPreviewContainer.style.display = 'none';
+        photoPreview.src = '';
+      } else {
+        alert('Submission failed.');
+        submitPoemBtn.textContent = 'Submit Poem';
+        submitPoemBtn.disabled = false;
+      }
     } catch (err) {
       alert('Submission failed.');
       submitPoemBtn.textContent = 'Submit Poem';
