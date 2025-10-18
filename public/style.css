@@ -30,7 +30,7 @@
 
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(120deg, #f7f7fa 0%, #e3e6f5 100%);
+  background: url('https://plus.unsplash.com/premium_photo-1734543942921-a369a46c6a13?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1500') no-repeat center center fixed;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -45,26 +45,24 @@ body {
 }
 
 #main-panel {
-  flex: 1 1 0;
-  max-width: 600px;
-  min-width: 340px;
-  background: #fff;
-  border-radius: 0 18px 18px 0;
+  flex: 1 1 50%;
+  width: 50%;
+  background: rgba(255,255,255,0.82);
+  border-radius: 0;
   box-shadow: 0 4px 24px rgba(60,60,120,0.10);
   padding: 36px 28px 32px 28px;
   overflow-y: auto;
 }
 
 #photo-panel {
-  flex: 0 0 40vw;
-  min-width: 320px;
-  max-width: 600px;
-  background: #e3e6f5;
+  flex: 1 1 50%;
+  width: 50%;
+  background: rgba(227,230,245,0.78);
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  border-radius: 18px 0 0 18px;
+  border-radius: 0;
   box-shadow: 0 4px 24px rgba(60,60,120,0.07);
   overflow: hidden;
 }
