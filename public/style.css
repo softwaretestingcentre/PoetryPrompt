@@ -1,9 +1,9 @@
 #poems-panel {
   width: 100%;
   padding: 18px 12px;
-  background: #e3e6f5;
   overflow-y: auto;
-  max-height: 60vh;
+  max-height: 100vh;
+  height: 100vh;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(60,60,120,0.07);
   margin-top: 24px;
@@ -17,9 +17,10 @@
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(60,60,120,0.05);
-  padding: 12px 14px;
-  margin-bottom: 12px;
-  word-break: break-word;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    word-break: break-word;
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
 }
 .poem-meta {
   font-size: 0.95em;
@@ -30,7 +31,7 @@
 
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: url('https://plus.unsplash.com/premium_photo-1734543942921-a369a46c6a13?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1500') no-repeat center center fixed;
+  background: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -47,7 +48,7 @@ body {
 #main-panel {
   flex: 1 1 50%;
   width: 50%;
-  background: rgba(255,255,255,0.82);
+  background: rgba(232, 180, 120, 0.22); /* warm amber/orange */
   border-radius: 0;
   box-shadow: 0 4px 24px rgba(60,60,120,0.10);
   padding: 36px 28px 32px 28px;
@@ -57,7 +58,7 @@ body {
 #photo-panel {
   flex: 1 1 50%;
   width: 50%;
-  background: rgba(227,230,245,0.78);
+  background: rgba(227,230,245,0.22);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +102,7 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: linear-gradient(90deg, #6a7cff 0%, #a1c4fd 100%);
+  background: linear-gradient(90deg, #f6c177 0%, #e97b3a 100%); /* warm golden to pumpkin */
   color: #fff;
   border: none;
   padding: 12px 24px;
@@ -113,15 +114,16 @@ h1 {
   transition: background 0.2s;
 }
 .primary-btn:hover {
-  background: linear-gradient(90deg, #5a6ad6 0%, #7eaaff 100%);
+  background: linear-gradient(90deg, #e97b3a 0%, #f6c177 100%); /* pumpkin to golden */
 }
 .secondary-btn {
-  background: #f7f7fa;
-  color: #6a7cff;
-  border: 1px solid #dbe2fa;
+  background: #ffe5b4;
+  color: #a14a00;
+  border: 1px solid #f6c177;
 }
 .secondary-btn:hover {
-  background: #e3e6f5;
+  background: #f6c177;
+  color: #fff;
 }
 .card {
   background: #f7f7fa;
@@ -179,6 +181,8 @@ h1 {
 }
 .upload-group {
   margin-bottom: 14px;
+  background: linear-gradient(90deg, #f6c177 0%, #e97b3a 100%); /* warm golden to pumpkin */
+
 }
 #poem-photo {
   display: block;
