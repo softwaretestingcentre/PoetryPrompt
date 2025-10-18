@@ -1,3 +1,31 @@
+#poems-panel {
+  width: 100%;
+  padding: 18px 12px;
+  background: #e3e6f5;
+  overflow-y: auto;
+  max-height: 60vh;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60,60,120,0.07);
+  margin-top: 24px;
+}
+#poems-list {
+  font-size: 1em;
+  color: #333;
+  margin-top: 8px;
+}
+.poem-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(60,60,120,0.05);
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  word-break: break-word;
+}
+.poem-meta {
+  font-size: 0.95em;
+  color: #666;
+  margin-bottom: 6px;
+}
 
 
 body {

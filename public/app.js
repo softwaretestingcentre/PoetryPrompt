@@ -2,6 +2,43 @@
 // Will connect to backend for prompts, timer, and poem submission
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Poems search and display
+  const poemsList = document.getElementById('poems-list');
+  const searchPoems = document.getElementById('search-poems');
+
+  async function fetchAndDisplayPoems(filter = '') {
+    try {
+      const res = await fetch('/api/poems');
+      const data = await res.json();
+      let poems = data.poems || [];
+      if (filter) {
+        const f = filter.toLowerCase();
+        poems = poems.filter(p =>
+          (p.theme && p.theme.toLowerCase().includes(f)) ||
+          (p.style && p.style.toLowerCase().includes(f)) ||
+          (p.text && p.text.toLowerCase().includes(f))
+        );
+      }
+      poemsList.innerHTML = poems.length ? poems.map(poem => `
+        <div class="poem-card">
+          <div class="poem-meta">
+            <strong>${poem.theme || ''}</strong> | <em>${poem.style || ''}</em> <span style="float:right;">${new Date(poem.created_at).toLocaleString()}</span>
+          </div>
+          <div>${poem.text ? poem.text.replace(/\n/g, '<br>') : ''}</div>
+          ${poem.photo_url ? `<div style='margin-top:8px;'><img src='${poem.photo_url}' alt='Poem photo' style='max-width:120px;max-height:120px;border-radius:6px;'></div>` : ''}
+        </div>
+      `).join('') : '<div>No poems found.</div>';
+    } catch (err) {
+      poemsList.innerHTML = '<div>Error loading poems.</div>';
+    }
+  }
+
+  searchPoems.addEventListener('input', e => {
+    fetchAndDisplayPoems(e.target.value);
+  });
+
+  // Initial load
+  fetchAndDisplayPoems();
   const getPromptBtn = document.getElementById('get-prompt');
   const promptDisplay = document.getElementById('prompt-display');
   const timerSection = document.getElementById('timer-section');
@@ -143,6 +180,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!poemText && !photoInput.files.length) {
       alert('Please type a poem or upload a photo.');
       return;
+    }
+    // Stop timer when submitting poem
+    if (timerInterval) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      timerSpan.textContent = 'Timer stopped';
+      timerSpan.className = 'timer-ended';
+      startTimerBtn.disabled = false;
     }
     submitPoemBtn.disabled = true;
     submitPoemBtn.textContent = 'Submitting...';
