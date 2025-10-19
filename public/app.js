@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchAndDisplayPoems(filter = '') {
     try {
-      const res = await fetch('/api/poems');
+  const res = await fetch('/.netlify/functions/poems');
       const data = await res.json();
       let poems = data.poems || [];
       if (filter) {
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startTimerBtn.disabled = false;
     submitPoemBtn.disabled = true;
     try {
-      const res = await fetch('/api/prompt');
+  const res = await fetch('/.netlify/functions/prompt');
       const data = await res.json();
       promptDisplay.textContent = `Theme: ${data.theme} | Style: ${data.style}`;
       styleShort = data.description;
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         submitPoemBtn.textContent = 'Extracting...';
         submitPoemBtn.disabled = true;
-        const res = await fetch('/api/ocr', {
+        const res = await fetch('/.netlify/functions/ocr', {
           method: 'POST',
           body: formData
         });
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
       formData.append('photo', photoInput.files[0]);
     }
     try {
-      const res = await fetch('/api/submit', { method: 'POST', body: formData });
+  const res = await fetch('/.netlify/functions/submit', { method: 'POST', body: formData });
       const result = await res.json();
       if (result.success) {
         alert('Poem submitted!');
