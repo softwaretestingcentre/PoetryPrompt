@@ -14,3 +14,5 @@ Technologies Used: HTML, CSS, JavaScript, Node.js, Express.js
 
 ## Testing:
 - Perform manual testing of the UI using chrome-devtools MCP server to check that all elements are displayed correctly and function as expected.
+- If an alert appears with an OK button, click it and continue
+- If the alert reports an error, take a screenshot and log the error for further investigation.
